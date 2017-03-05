@@ -1,0 +1,1 @@
+SELECT prize FROM ROOT WHERE element 1 "el"

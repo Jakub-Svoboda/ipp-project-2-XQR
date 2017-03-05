@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<plant id="702">
+      <common>Snakeroot</common>
+      <botanical>Cimicifuga</botanical>
+      <zone>Annual</zone>
+      <light>Shade</light>
+      <price>5.63</price>
+      <availability>071199</availability>
+    </plant>
+    </root>

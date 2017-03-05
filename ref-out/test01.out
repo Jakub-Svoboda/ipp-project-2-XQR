@@ -1,0 +1,11 @@
+------------------------------------------------------------------------------
+./src/xqr.py
+===
+--help                 - Show help
+--input=filename.ext   - Input file with xml
+--output=filename.ext  - Output file with xml
+--query='query'        - Query under xml - can not be used with -qf attribute
+--qf=filename.ext      - Filename with query under xml
+-n                     - Xml will be generated without XML header
+-r=element             - Name of root element
+------------------------------------------------------------------------------

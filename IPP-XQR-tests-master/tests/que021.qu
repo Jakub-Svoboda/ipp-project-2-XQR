@@ -1,0 +1,1 @@
+SELECT el FROM ROOT WHERE (NOT (a = 3) 

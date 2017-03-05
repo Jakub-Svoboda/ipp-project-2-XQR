@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<plant id="502">
+      <common>Wake Robin</common>
+      <botanical>Trillium grandiflorum</botanical>
+      <zone>5</zone>
+      <light>Sun or Shade</light>
+      <price>3.20</price>
+      <availability>022199</availability>
+    </plant>
+  </root>

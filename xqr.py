@@ -8,12 +8,46 @@ import argparse
 import sys
 import re
 import os
+from enum import Enum
 from xml.dom import minidom
 
+#define error codes
 PARAMETER_ERROR=1
 INPUT_ERROR=2
 OUTPUT_ERROR=3
 
+#define tokens
+TOKEN_SELECT=1
+TOKEN_ELEMENT=2
+TOKEN_FROM=3
+TOKEN_LIMIT=4
+TOKEN_NUMBER=5
+TOKEN_STRING=6
+TOKEN_ROOT=7
+TOKEN_WHERE=8
+TOKEN_NOT=9
+TOKEN_CONTAINS=10
+TOKEN_EQUAL=11
+TOKEN_GREATER=12
+TOKEN_LESS=13
+TOKEN_ATTRIBUTE=14
+TOKEN_EOF=15
+
+#class defining one token from query
+class Token:	
+	def __init__(self,type,value):
+		self.type=type
+		self.value=value			
+	def getType(self):
+		return self.type
+	def getValue(self):
+		return self.value	
+
+#class defining the query		
+class QueryText:
+	def __init__(self,text):
+		self.queryText=text
+		
 #prints help when a --help parameter is found and ends the program
 def printHelp(results):
 	if(results.input or results.output or results.query or results.qf or results.n or results.root):
@@ -65,20 +99,95 @@ def checkParameters(results,unknown):
 	if(not results.output):						#Check whether or not the output parameter is ok
 		sys.stderr.write("--output parameter not found\n");
 		exit(PARAMETER_ERROR)						#TODO what error should this be?
-		
-#Analyzes the syntax of the query and executes
-def parse(results):		
-	Test_file = open(results.input,'r')
-	xmldoc = minidom.parse(Test_file)
-	Test_file.close()
-	printNode(xmldoc.documentElement)
-	
-def printNode(node):
-	print (node)
-	for child in node.childNodes:
-		printNode(child)
 
+#copies the query from either the parameter or the source file into a string		
+def getQuery(results):	
+	if(results.qf):
+		file=open(results.qf,'r')
+		queryText=file.read()
+		file.close
+	else:
+		queryText=results.query		
 		
+	text = QueryText(queryText)	
+	text.queryText = re.sub("'\r\n'", r"' '", text.queryText)		#replace newlines
+	return text
+	
+#lexical analyser of the query	
+def getToken(text):
+	tokenStr = str("")
+	index=0
+	for letter in text.queryText:
+		#tokenStr+=str(letter)
+		if(letter == ' ' or letter == "<" or letter == ">" or letter == "=" or letter == "\t"):
+			if(len(tokenStr)==0):
+				tokenStr+=str(letter)
+			break
+		index+=1
+		tokenStr+=str(letter)
+		
+		
+		
+	print(tokenStr)	
+	tokenStr=re.sub(r'^\s+',"",tokenStr)										#trim spaces from around the token
+	tokenStr=re.sub(r'\s+$',"",tokenStr)
+	text.queryText=re.sub(tokenStr, '', text.queryText,1)						#remove the token from query string
+	text.queryText=re.sub(r'^\s+',"",text.queryText)							#trim spaces from around the rest of query string
+	text.queryText=re.sub(r'\s+$',"",text.queryText)
+	#01 SELECT 
+	if(tokenStr == "SELECT"):	
+		token = Token(TOKEN_SELECT,"SELECT")
+	#03 FROM	
+	elif(tokenStr == "FROM"):	
+		token = Token(TOKEN_FROM,"FROM")
+	#04 LIMIT	
+	elif(tokenStr == "LIMIT"):	
+		token = Token(TOKEN_LIMIT,"LIMIT")
+	#07 ROOT
+	elif(tokenStr == "ROOT"):	
+		token = Token(TOKEN_ROOT,"ROOT")
+	#08 WHERE
+	elif(tokenStr == "WHERE"):	
+		token = Token(TOKEN_WHERE,"WHERE")
+	#09 NOT
+	elif(tokenStr == "NOT"):	
+		token = Token(TOKEN_NOT,"NOT")	
+	#10 CONTAINS
+	elif(tokenStr == "CONTAINS"):	
+		token = Token(TOKEN_CONTAINS,"CONTAINS")	
+	#11 EQUAL
+	elif(tokenStr == "="):	
+		token = Token(TOKEN_EQUAL,"EQUAL")
+	#12 GREATER
+	elif(tokenStr == ">"):	
+		token = Token(TOKEN_GREATER,"GREATER")	
+	#13 LESS
+	elif(tokenStr == "<"):	
+		token = Token(TOKEN_LESS,"LESS")
+	#elif(tokenStr)	
+	else:
+		return None
+	
+	
+	return token
+	
+#Analyzes the syntax of the query and executes
+def parse(results):	
+	inputFile = open(results.input,'r')			#open the xml file	 TODO safe open
+	xml = minidom.parse(inputFile)
+	inputFile.close()	
+	text = getQuery(results)
+	i=0
+	while(i<12):		#get tokens one by one
+		getToken(text)
+		i+=1
+		
+	
+	
+
+
+
+	
 				
 #MAIN:	
 parser = argparse.ArgumentParser(add_help=False)

@@ -1,0 +1,1 @@
+SELECT el LIMIT xyz FROM ROOT

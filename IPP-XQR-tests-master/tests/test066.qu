@@ -1,0 +1,1 @@
+SELECT plant FROM ROOT WHERE price < 4

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<plant id="101">
+      <common>Bloodroot</common>
+      <botanical>Sanguinaria canadensis</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>2.44</price>
+      <availability>031599</availability>
+    </plant>
+<plant id="202">
+      <common>Dutchman's-Breeches</common>
+      <botanical>Dicentra cucullaria</botanical>
+      <zone>3</zone>
+      <light>Mostly Shady</light>
+      <price>6.44</price>
+      <availability>012099</availability>
+    </plant>
+<plant id="204">
+      <common>Hepatica</common>
+      <botanical>Hepatica americana</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>4.45</price>
+      <availability>012699</availability>
+    </plant>
+<plant id="301">
+      <common>Marsh Marigold</common>
+      <botanical>Caltha palustris</botanical>
+      <zone>4</zone>
+      <light>Mostly Sunny</light>
+      <price>6.81</price>
+      <availability>051799</availability>
+    </plant>
+<plant id="401">
+      <common>Liverleaf</common>
+      <botanical>Hepatica americana</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>3.99</price>
+      <availability>010299</availability>
+    </plant>
+    <plant id="402">
+      <common>Jack-In-The-Pulpit</common>
+      <botanical>Arisaema triphyllum</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>3.23</price>
+      <availability>020199</availability>
+    </plant>
+    <plant id="403">
+      <common>Mayapple</common>
+      <botanical>Podophyllum peltatum</botanical>
+      <zone>3</zone>
+      <light>Mostly Shady</light>
+      <price>2.98</price>
+      <availability>060599</availability>
+    </plant>
+<plant id="406">
+      <common>Spring-Beauty</common>
+      <botanical>Claytonia Virginica</botanical>
+      <zone>7</zone>
+      <light>Mostly Shady</light>
+      <price>6.59</price>
+      <availability>020199</availability>
+    </plant>
+    <plant id="604">
+      <common>Anemone</common>
+      <botanical>Anemone blanda</botanical>
+      <zone>6</zone>
+      <light>Mostly Shady</light>
+      <price>8.86</price>
+      <availability>122698</availability>
+    </plant>
+</root>

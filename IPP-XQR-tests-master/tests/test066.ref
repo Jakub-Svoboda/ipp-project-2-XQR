@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<plant id="101">
+      <common>Bloodroot</common>
+      <botanical>Sanguinaria canadensis</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>2.44</price>
+      <availability>031599</availability>
+    </plant>
+    <plant id="401">
+      <common>Liverleaf</common>
+      <botanical>Hepatica americana</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>3.99</price>
+      <availability>010299</availability>
+    </plant>
+    <plant id="402">
+      <common>Jack-In-The-Pulpit</common>
+      <botanical>Arisaema triphyllum</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>3.23</price>
+      <availability>020199</availability>
+    </plant>
+    <plant id="403">
+      <common>Mayapple</common>
+      <botanical>Podophyllum peltatum</botanical>
+      <zone>3</zone>
+      <light>Mostly Shady</light>
+      <price>2.98</price>
+      <availability>060599</availability>
+    </plant>
+    <plant id="404">
+      <common>Phlox, Woodland</common>
+      <botanical>Phlox divaricata</botanical>
+      <zone>3</zone>
+      <light>Sun or Shade</light>
+      <price>2.80</price>
+      <availability>012299</availability>
+    </plant>
+    <plant id="501">
+      <common>Trillium</common>
+      <botanical>Trillium grandiflorum</botanical>
+      <zone>5</zone>
+      <light>Sun or Shade</light>
+      <price>3.90</price>
+      <availability>042999</availability>
+    </plant>
+    <plant id="502">
+      <common>Wake Robin</common>
+      <botanical>Trillium grandiflorum</botanical>
+      <zone>5</zone>
+      <light>Sun or Shade</light>
+      <price>3.20</price>
+      <availability>022199</availability>
+    </plant>
+    <plant id="703">
+      <common>Cardinal Flower</common>
+      <botanical>Lobelia cardinalis</botanical>
+      <zone>2</zone>
+      <light>Shade</light>
+      <price>3.02</price>
+      <availability>022299</availability>
+    </plant>
+    </root>

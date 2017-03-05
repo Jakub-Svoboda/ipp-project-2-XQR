@@ -1,0 +1,1 @@
+SELECT el FROM ROOT WHERE NOT element < "lll" and element2 = 3

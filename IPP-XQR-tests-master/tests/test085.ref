@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<plant id="102">
+      <common>Columbine</common>
+      <botanical>Aquilegia canadensis</botanical>
+      <zone>3</zone>
+      <light>Mostly Shady</light>
+      <price>9.37</price>
+      <availability>030699</availability>
+    </plant>
+    <plant id="201">
+      <common>Cowslip</common>
+      <botanical>Caltha palustris</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>9.90</price>
+      <availability>030699</availability>
+    </plant>
+    <plant id="203">
+      <common>Ginger, Wild</common>
+      <botanical>Asarum canadense</botanical>
+      <zone>3</zone>
+      <light>Mostly Shady</light>
+      <price>9.03</price>
+      <availability>041899</availability>
+    </plant>
+    <plant id="601">
+      <common>Violet, Dog-Tooth</common>
+      <botanical>Erythronium americanum</botanical>
+      <zone>4</zone>
+      <light>Shade</light>
+      <price>9.04</price>
+      <availability>020199</availability>
+    </plant>
+    <plant id="603">
+      <common>Adder's-Tongue</common>
+      <botanical>Erythronium americanum</botanical>
+      <zone>4</zone>
+      <light>Shade</light>
+      <price>9.58</price>
+      <availability>041399</availability>
+    </plant>
+    <plant id="605">
+      <common>Grecian Windflower</common>
+      <botanical>Anemone blanda</botanical>
+      <zone>6</zone>
+      <light>Mostly Shady</light>
+      <price>9.16</price>
+      <availability>071099</availability>
+    </plant>
+</root>    

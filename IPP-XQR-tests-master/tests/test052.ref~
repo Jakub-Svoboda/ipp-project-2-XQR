@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root><plant id="301">
+      <common>Marsh Marigold</common>
+      <botanical>Caltha palustris</botanical>
+      <zone>4</zone>
+      <light>Mostly Sunny</light>
+      <price>6.81</price>
+      <availability>051799</availability>
+    </plant>
+<root/></root>

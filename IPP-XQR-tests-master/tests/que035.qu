@@ -1,0 +1,1 @@
+SELECT prize FROM ROOT WHERE elem.at.at2 = 1

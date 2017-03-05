@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<store id="st01">
+    <plant id="101">
+      <common>Bloodroot</common>
+      <botanical>Sanguinaria canadensis</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>2.44</price>
+      <availability>031599</availability>
+    </plant>
+    <plant id="102">
+      <common>Columbine</common>
+      <botanical>Aquilegia canadensis</botanical>
+      <zone>3</zone>
+      <light>Mostly Shady</light>
+      <price>9.37</price>
+      <availability>030699</availability>
+    </plant>
+  </store>
+  <store id="st02">
+    <plant id="201">
+      <common>Cowslip</common>
+      <botanical>Caltha palustris</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>9.90</price>
+      <availability>030699</availability>
+    </plant>
+    <plant id="202">
+      <common>Dutchman's-Breeches</common>
+      <botanical>Dicentra cucullaria</botanical>
+      <zone>3</zone>
+      <light>Mostly Shady</light>
+      <price>6.44</price>
+      <availability>012099</availability>
+    </plant>
+    <plant id="203">
+      <common>Ginger, Wild</common>
+      <botanical>Asarum canadense</botanical>
+      <zone>3</zone>
+      <light>Mostly Shady</light>
+      <price>9.03</price>
+      <availability>041899</availability>
+    </plant>
+    <plant id="204">
+      <common>Hepatica</common>
+      <botanical>Hepatica americana</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>4.45</price>
+      <availability>012699</availability>
+    </plant>
+  </store>
+  <store canceled="yes" id="st03">
+    <plant id="301">
+      <common>Marsh Marigold</common>
+      <botanical>Caltha palustris</botanical>
+      <zone>4</zone>
+      <light>Mostly Sunny</light>
+      <price>6.81</price>
+      <availability>051799</availability>
+    </plant>
+  </store>
+  <store id="st04">
+    <plant id="401">
+      <common>Liverleaf</common>
+      <botanical>Hepatica americana</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>3.99</price>
+      <availability>010299</availability>
+    </plant>
+    <plant id="402">
+      <common>Jack-In-The-Pulpit</common>
+      <botanical>Arisaema triphyllum</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>3.23</price>
+      <availability>020199</availability>
+    </plant>
+    <plant id="403">
+      <common>Mayapple</common>
+      <botanical>Podophyllum peltatum</botanical>
+      <zone>3</zone>
+      <light>Mostly Shady</light>
+      <price>2.98</price>
+      <availability>060599</availability>
+    </plant>
+    <plant id="404">
+      <common>Phlox, Woodland</common>
+      <botanical>Phlox divaricata</botanical>
+      <zone>3</zone>
+      <light>Sun or Shade</light>
+      <price>2.80</price>
+      <availability>012299</availability>
+    </plant>
+    <plant id="405">
+      <common>Phlox, Blue</common>
+      <botanical>Phlox divaricata</botanical>
+      <zone>3</zone>
+      <light>Sun or Shade</light>
+      <price>5.59</price>
+      <availability>021699</availability>
+    </plant>
+    <plant id="406">
+      <common>Spring-Beauty</common>
+      <botanical>Claytonia Virginica</botanical>
+      <zone>7</zone>
+      <light>Mostly Shady</light>
+      <price>6.59</price>
+      <availability>020199</availability>
+    </plant>
+  </store>
+  <store id="st05">
+    <plant id="501">
+      <common>Trillium</common>
+      <botanical>Trillium grandiflorum</botanical>
+      <zone>5</zone>
+      <light>Sun or Shade</light>
+      <price>3.90</price>
+      <availability>042999</availability>
+    </plant>
+    <plant id="502">
+      <common>Wake Robin</common>
+      <botanical>Trillium grandiflorum</botanical>
+      <zone>5</zone>
+      <light>Sun or Shade</light>
+      <price>3.20</price>
+      <availability>022199</availability>
+    </plant>
+  </store>
+  <store id="st06">
+    <plant id="601">
+      <common>Violet, Dog-Tooth</common>
+      <botanical>Erythronium americanum</botanical>
+      <zone>4</zone>
+      <light>Shade</light>
+      <price>9.04</price>
+      <availability>020199</availability>
+    </plant>
+    <plant id="602">
+      <common>Trout Lily</common>
+      <botanical>Erythronium americanum</botanical>
+      <zone>4</zone>
+      <light>Shade</light>
+      <price>6.94</price>
+      <availability>032499</availability>
+    </plant>
+    <plant id="603">
+      <common>Adder's-Tongue</common>
+      <botanical>Erythronium americanum</botanical>
+      <zone>4</zone>
+      <light>Shade</light>
+      <price>9.58</price>
+      <availability>041399</availability>
+    </plant>
+    <plant id="604">
+      <common>Anemone</common>
+      <botanical>Anemone blanda</botanical>
+      <zone>6</zone>
+      <light>Mostly Shady</light>
+      <price>8.86</price>
+      <availability>122698</availability>
+    </plant>
+    <plant id="605">
+      <common>Grecian Windflower</common>
+      <botanical>Anemone blanda</botanical>
+      <zone>6</zone>
+      <light>Mostly Shady</light>
+      <price>9.16</price>
+      <availability>071099</availability>
+    </plant>
+    <plant id="606">
+      <common>Bee Balm</common>
+      <botanical>Monarda didyma</botanical>
+      <zone>4</zone>
+      <light>Shade</light>
+      <price>4.59</price>
+      <availability>050399</availability>
+    </plant>
+  </store>
+  <store id="st07">   
+    <plant id="701">
+      <common>Bergamot</common>
+      <botanical>Monarda didyma</botanical>
+      <zone>4</zone>
+      <light>Shade</light>
+      <price>7.16</price>
+      <availability>042799</availability>
+    </plant>
+    <plant id="702">
+      <common>Snakeroot</common>
+      <botanical>Cimicifuga</botanical>
+      <zone>Annual</zone>
+      <light>Shade</light>
+      <price>5.63</price>
+      <availability>071199</availability>
+    </plant>
+    <plant id="703">
+      <common>Cardinal Flower</common>
+      <botanical>Lobelia cardinalis</botanical>
+      <zone>2</zone>
+      <light>Shade</light>
+      <price>3.02</price>
+      <availability>022299</availability>
+    </plant>
+  </store>
+  </root>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<plant id="404 order="1"">
+      <common>Phlox, Woodland</common>
+      <botanical>Phlox divaricata</botanical>
+      <zone>3</zone>
+      <light>Sun or Shade</light>
+      <price>2.80</price>
+      <availability>012299</availability>
+    </plant>
+    <plant id="405" order="2">
+      <common>Phlox, Blue</common>
+      <botanical>Phlox divaricata</botanical>
+      <zone>3</zone>
+      <light>Sun or Shade</light>
+      <price>5.59</price>
+      <availability>021699</availability>
+    </plant>
+<plant id="502" order="3">
+      <common>Wake Robin</common>
+      <botanical>Trillium grandiflorum</botanical>
+      <zone>5</zone>
+      <light>Sun or Shade</light>
+      <price>3.20</price>
+      <availability>022199</availability>
+    </plant>
+    </root>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<plant id="301">
+      <common>Marsh Marigold</common>
+      <botanical>Caltha palustris</botanical>
+      <zone>4</zone>
+      <light>Mostly Sunny</light>
+      <price>6.81</price>
+      <availability>051799</availability>
+    </plant>
+<plant id="403">
+      <common>Mayapple</common>
+      <botanical>Podophyllum peltatum</botanical>
+      <zone>3</zone>
+      <light>Mostly Shady</light>
+      <price>2.98</price>
+      <availability>060599</availability>
+    </plant>
+    <plant id="604">
+      <common>Anemone</common>
+      <botanical>Anemone blanda</botanical>
+      <zone>6</zone>
+      <light>Mostly Shady</light>
+      <price>8.86</price>
+      <availability>122698</availability>
+    </plant>
+    <plant id="605">
+      <common>Grecian Windflower</common>
+      <botanical>Anemone blanda</botanical>
+      <zone>6</zone>
+      <light>Mostly Shady</light>
+      <price>9.16</price>
+      <availability>071099</availability>
+    </plant>
+    <plant id="606">
+      <common>Bee Balm</common>
+      <botanical>Monarda didyma</botanical>
+      <zone>4</zone>
+      <light>Shade</light>
+      <price>4.59</price>
+      <availability>050399</availability>
+    </plant>
+    <plant id="702">
+      <common>Snakeroot</common>
+      <botanical>Cimicifuga</botanical>
+      <zone>Annual</zone>
+      <light>Shade</light>
+      <price>5.63</price>
+      <availability>071199</availability>
+    </plant>
+    </root>

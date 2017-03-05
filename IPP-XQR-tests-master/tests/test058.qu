@@ -1,0 +1,1 @@
+SELECT plant LIMIT 30 FROM catalog

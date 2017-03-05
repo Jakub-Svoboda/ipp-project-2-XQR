@@ -1,0 +1,1 @@
+SELECT plant FROM store WHERE common = "Columbine" 

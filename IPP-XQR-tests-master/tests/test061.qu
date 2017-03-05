@@ -1,0 +1,1 @@
+SELECT plant FROM catalog ORDER BY .id DESC

@@ -1,0 +1,1 @@
+SELECT plant LIMIT 0 FROM catalog

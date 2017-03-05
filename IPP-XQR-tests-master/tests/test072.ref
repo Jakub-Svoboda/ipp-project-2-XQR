@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<store id="st01">
+    <plant id="101">
+      <common>Bloodroot</common>
+      <botanical>Sanguinaria canadensis</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>2.44</price>
+      <availability>031599</availability>
+    </plant>
+    <plant id="102">
+      <common>Columbine</common>
+      <botanical>Aquilegia canadensis</botanical>
+      <zone>3</zone>
+      <light>Mostly Shady</light>
+      <price>9.37</price>
+      <availability>030699</availability>
+    </plant>
+  </store>
+  <store id="st02">
+    <plant id="201">
+      <common>Cowslip</common>
+      <botanical>Caltha palustris</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>9.90</price>
+      <availability>030699</availability>
+    </plant>
+    <plant id="202">
+      <common>Dutchman's-Breeches</common>
+      <botanical>Dicentra cucullaria</botanical>
+      <zone>3</zone>
+      <light>Mostly Shady</light>
+      <price>6.44</price>
+      <availability>012099</availability>
+    </plant>
+    <plant id="203">
+      <common>Ginger, Wild</common>
+      <botanical>Asarum canadense</botanical>
+      <zone>3</zone>
+      <light>Mostly Shady</light>
+      <price>9.03</price>
+      <availability>041899</availability>
+    </plant>
+    <plant id="204">
+      <common>Hepatica</common>
+      <botanical>Hepatica americana</botanical>
+      <zone>4</zone>
+      <light>Mostly Shady</light>
+      <price>4.45</price>
+      <availability>012699</availability>
+    </plant>
+  </store>
+  </root>

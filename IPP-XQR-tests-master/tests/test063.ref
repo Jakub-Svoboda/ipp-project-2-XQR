@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<plant id="102">
+      <common>Columbine</common>
+      <botanical>Aquilegia canadensis</botanical>
+      <zone>3</zone>
+      <light>Mostly Shady</light>
+      <price>9.37</price>
+      <availability>030699</availability>
+    </plant>
+    </root>

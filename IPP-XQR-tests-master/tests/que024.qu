@@ -1,0 +1,1 @@
+SELECT el FROM ROOT WHERE elem = .attr

@@ -1,0 +1,1 @@
+SELECT plant FROM ROOT WHERE NOT ( price > 9 OR zone = 3 )AND light CONTAINS "Mostly" 

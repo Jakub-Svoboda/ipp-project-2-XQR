@@ -1,0 +1,1 @@
+SELECT library FROM catalog WHERE library.my="True"

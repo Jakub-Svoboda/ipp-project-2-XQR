@@ -128,7 +128,7 @@ def getToken(text):
 		
 		
 		
-	print(tokenStr)	
+	
 	tokenStr=re.sub(r'^\s+',"",tokenStr)										#trim spaces from around the token
 	tokenStr=re.sub(r'\s+$',"",tokenStr)
 	text.queryText=re.sub(tokenStr, '', text.queryText,1)						#remove the token from query string
@@ -157,18 +157,30 @@ def getToken(text):
 		token = Token(TOKEN_CONTAINS,"CONTAINS")	
 	#11 EQUAL
 	elif(tokenStr == "="):	
-		token = Token(TOKEN_EQUAL,"EQUAL")
+		token = Token(TOKEN_EQUAL,tokenStr)
 	#12 GREATER
 	elif(tokenStr == ">"):	
-		token = Token(TOKEN_GREATER,"GREATER")	
+		token = Token(TOKEN_GREATER,tokenStr)	
 	#13 LESS
 	elif(tokenStr == "<"):	
-		token = Token(TOKEN_LESS,"LESS")
-	#elif(tokenStr)	
+		token = Token(TOKEN_LESS,tokenStr)	
+	#06 string	
+	elif((tokenStr.startswith("'") and tokenStr.endswith("'")) or (tokenStr.startswith("\"") and tokenStr.endswith("\""))):
+		tokenStr = (tokenStr[1:-1])
+		token = Token(TOKEN_STRING,tokenStr)
+	#05 number
+	elif(tokenStr.isdecimal()):
+		token = Token(TOKEN_NUMBER,tokenStr)
+	#15 EOF	
+	elif(tokenStr.isspace()):
+		token = Token(TOKEN_EOF,tokenStr)
+		print("found EOF")
+	#14 ELEMENT	
 	else:
-		return None
+		token = Token(TOKEN_ELEMENT,tokenStr)
+		print("found element " + tokenStr +".");
 	
-	
+	print(tokenStr)	
 	return token
 	
 #Analyzes the syntax of the query and executes
@@ -178,10 +190,10 @@ def parse(results):
 	inputFile.close()	
 	text = getQuery(results)
 	i=0
-	while(i<12):		#get tokens one by one
-		getToken(text)
+	while(i<14):		#get tokens one by one
+		token = getToken(text)
 		i+=1
-		
+		print(token.type)
 	
 	
 

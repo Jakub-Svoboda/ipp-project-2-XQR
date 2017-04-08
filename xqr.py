@@ -91,13 +91,13 @@ def checkParameters(results,unknown):
 	if(results.qf):								#controls valid --qf path
 		if(not(os.path.exists(results.qf))):
 			sys.stderr.write("--qf file not found:	%s\n" % results.qf)
-			exit(INPUT_ERROR)						#TODO is error ok?
+			exit(80)						
 		if(not os.path.isfile(results.qf)):	
 			sys.stderr.write("--qf file is not file:	%s\n" % results.qf)
-			exit(INPUT_ERROR)						#TODO is error ok?
+			exit(80)						
 	if(results.qf == ""):
 		sys.stderr.write("--qf empty value	%s\n" % results.qf)
-		exit(PARAMETER_ERROR)						#TODO is error ok?
+		exit(PARAMETER_ERROR)						
 	
 	if(not results.input):						#validates the --input file	
 		sys.stderr.write("--input parameter not found\n");
@@ -106,20 +106,20 @@ def checkParameters(results,unknown):
 		if(results.input):
 			if(not os.path.exists):
 				sys.stderr.write("--input file not found:	%s\n" % results.input)
-				exit(INPUT_ERROR)					#TODO is error ok?
+				exit(INPUT_ERROR)					
 			if(not os.path.isfile(results.input)):	
 				sys.stderr.write("--input file is not file:	%s\n" % results.input)
-				exit(INPUT_ERROR)					#TODO is error ok?
+				exit(INPUT_ERROR)					
 				
 	if(not results.output):						#Check whether or not the output parameter is ok
 		sys.stderr.write("--output parameter not found\n");
-		exit(PARAMETER_ERROR)						#TODO what error should this be?
+		exit(PARAMETER_ERROR)					
 
 #copies the query from either the parameter or the source file into a string		
 def getQuery(results):	
 	if(results.qf):
 		try:
-			file=open(results.qf,'r')				#TODO safe open
+			file=open(results.qf,'r')			
 			queryText=file.read()
 			file.close()
 		except:
@@ -198,7 +198,7 @@ def getToken(text):
 	elif((tokenStr.startswith('"') and tokenStr.endswith('"')) or (tokenStr.startswith('\'') and tokenStr.endswith('\''))):			tokenStr = tokenStr[1:-1]
 		token = Token(TOKEN_STRING, tokenStr)
 	#05 NUMBER	
-	elif(tokenStr.isdigit() or ((tokenStr[1:].isdigit() and tokenStr[0]=="+") or (tokenStr[1:].isdigit() and tokenStr[0]=="-"))):	#TODO is this correct<?
+	elif(tokenStr.isdigit() or ((tokenStr[1:].isdigit() and tokenStr[0]=="+") or (tokenStr[1:].isdigit() and tokenStr[0]=="-"))):	
 		token = Token(TOKEN_NUMBER,tokenStr)
 	#02 ELEMENT
 	elif((not tokenStr.isspace()) and len(tokenStr) != 0):
@@ -228,6 +228,34 @@ def searchSubElemsRecAll(root,result):
 		searchSubElemsRecAll(item,result)
 	return result	
 
+#orders the elements by given element value or attrubute in ascending or descending order:
+def orderResult(result,order,orderElement,orderAttribute):
+	elementValue=[]
+	fullPass=False
+	rev=True
+	if(order.getType()==TOKEN_ASC):
+		rev=False	
+		
+	if(orderElement!="" and orderAttribute!=""):	#element.attribute
+		try:
+			result.sort(key = lambda x: x.find(orderElement).get(orderAttribute), reverse=rev)
+		except:
+			printError(4,"Sorting error.\n")
+	elif(orderElement!="" and orderAttribute==""):	#element
+		try:
+			result.sort(key = lambda x: x.find(orderElement).text, reverse=rev)	
+		except:
+			printError(4,"Sorting error.\n")
+	elif(orderElement=="" and orderAttribute!=""):	#.attribute	
+		try:
+			result.sort(key = lambda x: x.get(orderAttribute), reverse=rev)
+		except:
+			printError(4,"Sorting error.\n")
+	
+	for index, item in enumerate(result):
+		item.attrib["order"] = str(index+1)	
+	return result
+	
 #filter the elements based on the ocndition from WHERE clause\n
 def filterWhere(nots, result, whereElement, whereAttribute, operator, literal):
 	elementValue=[]
@@ -247,7 +275,7 @@ def filterWhere(nots, result, whereElement, whereAttribute, operator, literal):
 				result[idx]=None
 			else:																	#element contains the searched element
 				if(whereAttribute in elementValue[0].attrib):							#element also contains the searched attribute					
-					#if(len(elementValue)>idx):				#TODO <what is that?					
+					#if(len(elementValue)>idx):									
 					if(toint and operator.getType()!=TOKEN_CONTAINS):		
 						try:
 							comparison=float(elementValue[0].get(whereAttribute))					
@@ -271,11 +299,11 @@ def filterWhere(nots, result, whereElement, whereAttribute, operator, literal):
 							result[idx]=None
 						elif(comparison==threshold and (nots%2 == 1)):
 							result[idx]=None	
-					elif(operator.getType() == TOKEN_CONTAINS):			#CONTAINS #TODO library.my CONTAINS number|string, this should probably be syntax error?
+					elif(operator.getType() == TOKEN_CONTAINS):			#CONTAINS 
 						try:
-							if((not re.search(threshold, comparison)) and (nots%2 == 0)):				#TODO regexlike strings might search weird stuff, TODO 
+							if((not (threshold in comparison)) and (nots%2 == 0)):				
 								result[idx]=None
-							elif(re.search(threshold, comparison) and (nots%2 == 1)):	
+							elif((threshold in comparison) and (nots%2 == 1)):	
 								result[idx]=None
 						except:
 							pass		
@@ -286,8 +314,8 @@ def filterWhere(nots, result, whereElement, whereAttribute, operator, literal):
 			if(elementValue == []):													#the element for comparison not found in given element, element is removed
 				result[idx]=None
 			else:																	#element contains the value for comparison
-				if(len(elementValue)>idx):				#TODO <what is that?
-					if(toint and operator.getType()!=TOKEN_CONTAINS):					#TODO can it crash?
+				if(len(elementValue)>idx):				#<what is that?
+					if(toint and operator.getType()!=TOKEN_CONTAINS):				
 						try:
 							comparison=float(elementValue[idx].text)				
 						except:
@@ -312,16 +340,16 @@ def filterWhere(nots, result, whereElement, whereAttribute, operator, literal):
 							result[idx]=None		
 					elif(operator.getType() == TOKEN_CONTAINS):			#CONTAINS
 						try:
-							if((not re.search(threshold, comparison)) and (nots%2 == 0)):				#TODO regexlike strings might search weird stuff, TODO 
+							if((not (threshold in comparison)) and (nots%2 == 0)):				
 								result[idx]=None
-							elif(re.search(threshold, comparison) and (nots%2 == 1)):	
+							elif((threshold in comparison) and (nots%2 == 1)):	
 								result[idx]=None
 						except:
 							pass
 		elif(whereElement=="" and whereAttribute!=""):	#.attribute
 			#elementValue=searchSubElemsRecAll(item,elementValue)
 			if(whereAttribute in item.attrib):							#element also contains the searched attribute
-				if(toint and operator.getType()!=TOKEN_CONTAINS):					#TODO can it crash?
+				if(toint and operator.getType()!=TOKEN_CONTAINS):			
 					try:
 						comparison=float(item.get(whereAttribute))					
 					except:
@@ -344,11 +372,11 @@ def filterWhere(nots, result, whereElement, whereAttribute, operator, literal):
 						result[idx]=None
 					elif(comparison==threshold and (nots%2 == 1)):
 						result[idx]=None	
-				elif(operator.getType() == TOKEN_CONTAINS):			#CONTAINS #TODO library.my CONTAINS number|string, this should probably be syntax error?
+				elif(operator.getType() == TOKEN_CONTAINS):			#CONTAINS 
 					try:
-						if((not re.search(threshold, comparison)) and (nots%2 == 0)):				#TODO regexlike strings might search weird stuff, TODO 
+						if((not (threshold in comparison)) and (nots%2 == 0)):				
 							result[idx]=None
-						elif(re.search(threshold, comparison) and (nots%2 == 1)):	
+						elif((threshold in comparison) and (nots%2 == 1)):	
 							result[idx]=None
 					except:
 						pass
@@ -357,6 +385,7 @@ def filterWhere(nots, result, whereElement, whereAttribute, operator, literal):
 			
 	result=[item for item in result if item is not None]	#Removes the None elements from result
 	return result
+
 #Search the XML
 def interpret(results, xml, nots, element, attribute, fromElement, fromAttribute, whereElement, whereAttribute, operator, literal, order, orderElement, orderAttribute, number):
 	root=None
@@ -374,7 +403,7 @@ def interpret(results, xml, nots, element, attribute, fromElement, fromAttribute
 			if(xml.getroot().tag == fromElement):
 				root=xml.getroot()
 			else:	
-				root=xml.find(fromElement)				#TODO changed findall to find, seems to be working like this, vlidate?
+				root=xml.find(fromElement)				#changed findall to find, seems to be working like this, vlidate?
 		elif(fromElement=="" and fromAttribute!=""):	#attribute only
 			for elementCounter in list(searchSubElemsRecAll(xml.getroot(),[])):
 				if(fromAttribute in elementCounter.attrib):
@@ -384,18 +413,18 @@ def interpret(results, xml, nots, element, attribute, fromElement, fromAttribute
 			for elementCounter in xml.findall(fromElement):	
 				if(fromAttribute in elementCounter.attrib and root==None):
 					root=elementCounter
-					break	
-			
-		if(root == []):								#TODOTODO
-			print("Root element not found") 
-			exit(4)	
+					break				
+		if(root == []):								
+			printError(80,"Syntax error: root element not found.\n") 
 		result=searchSubElemsRec(root,element,result)
 		if(whereElement!="" or whereAttribute!="" ):		#WHERE present in the query
-			result=filterWhere(nots, result,whereElement,whereAttribute,operator,literal)	
+			result=filterWhere(nots, result,whereElement,whereAttribute,operator,literal)
+		if(order!=None):									#ORDER BY present in the query
+			result=orderResult(result,order,orderElement,orderAttribute)		
 		if(number != None):									#LIMIT present in the query
 			number = int(number.getValue())					#convert to int
 			if(number<0):
-				printError(4,"LIMIT number cannot be a negative number.\n") #TODO 4?
+				printError(4,"LIMIT number cannot be a negative number.\n") 
 			result=result[:number]
 									
 									
@@ -410,20 +439,26 @@ def interpret(results, xml, nots, element, attribute, fromElement, fromAttribute
 		document = ET.Element("@tmpRoot")
 		for item in result:
 			document.append(item)	
-		ET.ElementTree(document).write(results.output, encoding="utf-8", xml_declaration=addHeader)		#TODO safe	
-		file = open(results.output,'r')					#open the xml file	 TODO safe open
-		text=file.read()
-		file.close()
-		file = open(results.output,'w')					#open the xml file	 TODO safe open
-		text=re.sub(r'\<\@tmpRoot\>', "", text)
-		text=re.sub(r'\<\/@tmpRoot\>', "", text)
-		text=re.sub(r'<@tmpRoot />', "", text)
-		file.write(text)
-		file.close()
+		try:	
+			ET.ElementTree(document).write(results.output, encoding="utf-8", xml_declaration=addHeader)			
+			file = open(results.output,'r')					
+			text=file.read()
+			file.close()
+			file = open(results.output,'w')					
+			text=re.sub(r'\<\@tmpRoot\>', "", text)
+			text=re.sub(r'\<\/@tmpRoot\>', "", text)
+			text=re.sub(r'<@tmpRoot />', "", text)
+			file.write(text)
+			file.close()
+		except:
+			printError(3,"Output permission error.\n")
 	
 #Analyzes the syntax of the query and executes
 def parse(results):	
-	inputFile = open(results.input,'r')			#open the xml file	 TODO safe open
+	try:
+		inputFile = open(results.input,'r')			#open the xml file
+	except:
+		printError(2,"Input file open error.\n")
 	try:
 		xml = ET.parse(inputFile)
 	except:
